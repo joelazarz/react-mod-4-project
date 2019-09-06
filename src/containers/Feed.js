@@ -1,7 +1,10 @@
 import React from 'react'
 import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom'
+import '@atlaskit/css-reset'
+import { DragDropContext } from 'react-beautiful-dnd'
+import styled from 'styled-components'
 import ProjectCard from "../components/ProjectCard"
-import ProjectSpecs from "../components/ProjectSpecs"
+import Project from "../components/Project"
 
 
 class Feed extends React.Component {
@@ -38,7 +41,7 @@ class Feed extends React.Component {
               console.log(this.state.projects)
               let project = this.state.projects.find(project => project.id === id)
               console.log(project)
-              return <ProjectSpecs project={project}/>
+              return <Project />
         }} />
         <Route exact path="/projects" render={() => (
           <div>
