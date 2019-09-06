@@ -11,7 +11,38 @@ const Container = styled.div`
 `
 
 class Project extends React.Component {
-    state = initialData
+    state = {
+        tasks: {},
+        columns: {
+            'column-1': {
+                id: 'column-1',
+                title: 'To-Do',
+                taskIds: [],
+            },
+            'column-2': {
+                id: 'column-2',
+                title: 'In-Progress',
+                taskIds: [],
+            },
+            'column-3': {
+                id: 'column-2',
+                title: 'Complete',
+                taskIds: [],
+            },
+        },
+        columnOrder: ['column-1', 'column-2']
+    }
+
+    componentDidMount(){
+        let projectTasks = this.props.tasks.filter(task => task.project_id === this.props.project.id)
+        let newTasksState = {}
+        projectTasks.forEach((task,i) => {
+            newTasksState[`task-${i}`] = {id: task.id, content: task.description}
+        })
+        this.setState({tasks: newTasksState})
+        // this.setState({columns: {...this.state.columns, 'column-1': Object.keys(this.state.tasks) }})
+
+    }
 
     onDragEnd = result => {
         const { destination, source, draggableId } = result
@@ -90,6 +121,7 @@ render() {
             )
 
             return (
+            console.log(tasks),
             <Column key={column.id} column={column} tasks={tasks} />
             )
             })}

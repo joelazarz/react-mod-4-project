@@ -12,6 +12,7 @@ class Feed extends React.Component {
   state = {
     projects: [],
     users: [],
+    tasks: [],
     redirect: ""
   }
 
@@ -20,14 +21,20 @@ class Feed extends React.Component {
   }
 
   componentDidMount(){
+    fetch("http://localhost:3000/tasks")
+    .then(resp => resp.json())
+    .then()
+}
+  componentDidMount(){
     Promise.all ([
       fetch("http://localhost:3000/users"),
-      fetch("http://localhost:3000/projects")
+      fetch("http://localhost:3000/projects"),
+      fetch("http://localhost:3000/tasks")
     ]) 
-    .then(([res1, res2])=> { 
-      return Promise.all([res1.json(), res2.json()]) 
+    .then(([res1, res2, res3])=> { 
+      return Promise.all([res1.json(), res2.json(), res3.json()]) 
     })
-    .then(([res1, res2]) => this.setState({users: res1, projects: res2}))
+    .then(([res1, res2, res3]) => this.setState({users: res1, projects: res2, tasks: res3}))
   }
 
   render() {
@@ -41,7 +48,7 @@ class Feed extends React.Component {
               console.log(this.state.projects)
               let project = this.state.projects.find(project => project.id === id)
               console.log(project)
-              return <Project />
+              return <Project project={project} tasks={this.state.tasks}/>
         }} />
         <Route exact path="/projects" render={() => (
           <div>
