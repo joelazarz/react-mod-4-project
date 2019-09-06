@@ -3,7 +3,8 @@ import React from 'react'
 const ProjectCard = props => {
 
   return (
-    <div>
+    <div onClick={(e) => props.showProject(e, props.project)}>
+
       <h1>{props.project.name}</h1>
       <p>Languages: {props.project.languages} 
       </p>
