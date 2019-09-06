@@ -8,7 +8,7 @@ class App extends Component {
     return (
       <div>
         <Router>
-          <Route path="/" component={Feed} />
+          <Route path="/projects" component={Feed} />
         </Router>
       </div>
     )
