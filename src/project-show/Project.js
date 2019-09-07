@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import './App.css';
+import './ProjectCss.css';
 
 class Project extends Component {
 
