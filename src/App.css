@@ -1,12 +1,12 @@
 .nav-bar {
-  background: rgb(222, 247, 255);
+  background: rgb(209, 209, 209);
   text-align: left;
-  height: 1.5em;
+  height: 2em;
 }
 
-.nav-links {
-  margin-left: 1em;
-  margin-right: 1em;
+.badge {
+  margin-left: 0.5em;
+  margin-right: 0.5em;
 }
 
 .new-project-form-display {
