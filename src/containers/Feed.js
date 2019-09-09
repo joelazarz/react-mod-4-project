@@ -38,7 +38,7 @@ class Feed extends React.Component {
               console.log(this.state.projects)
               let project = this.state.projects.find(project => project.id === id)
               console.log(project)
-              return <ProjectSpecs project={project}/>
+              return <ProjectSpecs project={project} projectId={project.id}/>
         }} />
         <Route exact path="/projects" render={() => (
           <div>

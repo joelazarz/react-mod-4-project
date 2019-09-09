@@ -1,17 +1,24 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom'
-import ReactDOM from 'react-dom';
+import { PropTypes } from 'prop-types';
 import TaskCard from './TaskCard'
 import './ProjectCss.css';
+
 
 class ProjectSpecs extends Component {
 
     state = { tasks: [] }
 
     componentDidMount(){
-        fetch("http://localhost:3000/tasks")
+        const projId = this.props.projectId;
+        fetch(`http://localhost:3000/projects/${projId}`)
         .then(resp => resp.json())
-        .then(tasks => this.setState({ tasks: tasks }))
+        .then(data => this.setState({ tasks: data.tasks }))
+    }
+
+    static propTypes = {
+        project: PropTypes.object.isRequired,
+        projectId: PropTypes.number.isRequired
     }
 
     onDragStart = (e, id) => {
@@ -37,25 +44,27 @@ class ProjectSpecs extends Component {
     render() {
 
         let tasks = { todo: [], wip: [], complete: [] }
-
+        
         this.state.tasks.forEach ((task) => {
             tasks[task.category].push(
-            <div key={task.name} 
-            onDragStart = {(e) => this.onDragStart(e, task.name)}
-            draggable
-            className="draggable"
-            id={task.category}
-            >
+                <div key={task.name} 
+                onDragStart = {(e) => this.onDragStart(e, task.name)}
+                draggable
+                className="draggable"
+                id={task.category}
+                >
             <TaskCard key={task.id} task={task} />
             </div>
             );
         });
-
+        
         const dragOverAction = (e)=>this.onDragOver(e)
 
+        const { name } = this.props.project;
+        
         return (
             <div className="container-drag">
-                <h2>Project</h2>
+                <h2>{name}</h2>
 
                 <div className="project-display">
 
@@ -69,7 +78,7 @@ class ProjectSpecs extends Component {
                 <div className="wip"
                     onDragOver={dragOverAction}
                     onDrop={(e)=>{this.onDrop(e, "wip")}}>
-                    <span className="task-header">WIP</span>
+                    <span className="task-header">IN PROGRESS</span>
                     {tasks.wip}
                 </div>
 
@@ -83,10 +92,9 @@ class ProjectSpecs extends Component {
                 </div>
             </div>
         );
-        }
-
+    }
+    
 }
 
-ReactDOM.render(<ProjectSpecs />, document.getElementById('root'));
 
 export default ProjectSpecs;
