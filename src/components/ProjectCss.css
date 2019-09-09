@@ -1,6 +1,7 @@
 
 .project-display {
     display: flex;
+    width: 70vw;
 }
 
 .task-header {

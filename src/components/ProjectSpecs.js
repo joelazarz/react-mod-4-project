@@ -31,14 +31,25 @@ class ProjectSpecs extends Component {
 
     onDrop = (e, cat) => {
         let id = e.dataTransfer.getData("id");
+        let theTask = this.state.tasks.find(task => task.name == id)
+        let taskId = theTask.id
+        
         let tasks = this.state.tasks.filter((task) => {
             if (task.name === id) {
-            task.category = cat;
+                task.category = cat;
             } 
-        return task;
+            return task;
         });
-
         this.setState({ ...this.state,tasks });
+        this.patchFunc(cat, taskId)
+    }
+
+    patchFunc = (cat, taskId) => {       
+        fetch(`http://localhost:3000/tasks/${taskId}`,{
+            method: "PATCH",
+            headers:{'Content-Type': 'application/json'},
+            body: JSON.stringify({ category: cat })
+        })
     }
 
     render() {
