@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from 'react'
 import { BrowserRouter as Router, Route, Redirect} from 'react-router-dom'
 import Feed from "./containers/Feed"
+import { NavBar } from './layout/NavBar';
 import UserProfile from "./components/UserProfile"
 import ProjectCard from "./components/ProjectCard"
 import Login from "./components/Login"
@@ -33,6 +34,7 @@ class App extends Component {
     return (
       <Fragment>
         <Router>
+        <NavBar user={this.state.user}/>
           {this.state.redirect}
           <Route exact path="/" component={Login}/>
           <Route exact path="/new-project" render={() => <ProjectForm showProject={this.showProject} redirect={this.state.redirect}/>} />
