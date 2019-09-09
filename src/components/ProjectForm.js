@@ -35,6 +35,7 @@ class ProjectForm extends React.Component {
     return (
       
     <div className="new-project-form-display">
+      <h3>New Project</h3>
       <form onSubmit={this.createProject}>
 
         <div className="form-group">
