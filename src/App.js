@@ -4,6 +4,7 @@ import Feed from "./containers/Feed"
 import UserProfile from "./components/UserProfile"
 import ProjectCard from "./components/ProjectCard"
 import Login from "./components/Login"
+import ProjectForm from "./components/ProjectForm"
 
 class App extends Component {
 
@@ -33,9 +34,11 @@ class App extends Component {
       <Fragment>
         <Router>
           {this.state.redirect}
-          <Route path="/" component={Login}/>
-          <Route path="/projects" render={() => <Feed showProject={this.showProject}/>} /> 
+          <Route exact path="/" component={Login}/>
+          <Route exact path="/new-project" render={() => <ProjectForm showProject={this.showProject} redirect={this.state.redirect}/>} />
+          <Route path="/projects" render={() => <Feed showProject={this.showProject} redirect={this.state.redirect}/>} /> 
           <Route path={`/users/${user.id}`} render={() => <UserProfile user={user} drawProjectCard={this.drawProjectCard}/>} />
+          
         </Router>
       </Fragment>
     )
