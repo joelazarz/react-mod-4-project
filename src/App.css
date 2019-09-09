@@ -4,8 +4,17 @@
   height: 1.5em;
 }
 
-.nav-link {
+.nav-links {
   margin-left: 1em;
   margin-right: 1em;
+}
+
+.new-project-form-display {
+  text-align: center;
+  padding: 1em;
+  border-radius: 0.5em;
+  width: 40vw;
+  margin-top: 4em;
+  background: lightgrey;
 }
 

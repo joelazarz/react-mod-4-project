@@ -16,9 +16,9 @@ export class NavBar extends Component {
 
         return (
             <div className="nav-bar">
-                <Link to='/projects' className="nav-link"> Project Feed</Link>
-                <Link to={`/users/${id}`} className="nav-link"> Profile </Link>
-                <Link to='/new-project' className="nav-link"> New Project</Link>
+                <Link to='/projects' className="nav-links"> Project Feed</Link>
+                <Link to={`/users/${id}`} className="nav-links"> Profile </Link>
+                <Link to='/new-project' className="nav-links"> New Project</Link>
             </div>
         )
     }
