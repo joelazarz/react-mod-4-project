@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
+import TaskCard from './TaskCard'
 import './ProjectCss.css';
 
 class Project extends Component {
@@ -44,8 +45,7 @@ class Project extends Component {
             className="draggable"
             id={task.category}
             >
-            Task: {task.name}
-            Description: {task.description}
+            <TaskCard key={task.id} task={task} />
             </div>
             );
         });
