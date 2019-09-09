@@ -35,7 +35,7 @@ class Project extends Component {
 
     render() {
 
-        var tasks = { todo: [], wip: [], complete: [] }
+        let tasks = { todo: [], wip: [], complete: [] }
 
         this.state.tasks.forEach ((task) => {
             tasks[task.category].push(
@@ -54,7 +54,7 @@ class Project extends Component {
 
         return (
             <div className="container-drag">
-                <h2 className="header">Project</h2>
+                <h2>Project</h2>
 
                 <div className="project-display">
 
