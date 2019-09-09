@@ -1,5 +1,4 @@
 import React from 'react'
-import ProjectCard from "./ProjectCard"
 
 const UserProfile = props => {
 
