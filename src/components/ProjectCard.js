@@ -2,13 +2,13 @@ import React from 'react'
 import { Redirect } from 'react-router-dom'
 
 const ProjectCard = props => {
-
+  const project = props.project
   return (
 
-    <div onClick={(e) => props.showProject(e, props.project)}>
+    <div onClick={(e) => props.showProject(e, project)}>
 
-      <h1>{props.project.name}</h1>
-      <p>Languages: {props.project.languages} 
+      <h1>{project.name}</h1>
+      <p>Languages: {project.languages} 
       </p>
       <p> Project Owner: {props.user.name}</p>
 

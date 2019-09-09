@@ -8,30 +8,24 @@ class Feed extends React.Component {
 
   state = {
     projects: [],
-    users: [],
     redirect: ""
-  }
-
-  showProject = (e, project) => {
-    this.setState({redirect: <Redirect to={`/projects/${project.id}`}/>})
   }
 
   componentDidMount(){
     Promise.all ([
-      fetch("http://localhost:3000/users"),
       fetch("http://localhost:3000/projects")
     ]) 
-    .then(([res1, res2])=> { 
-      return Promise.all([res1.json(), res2.json()]) 
+    .then(([res1])=> { 
+      return Promise.all([res1.json()]) 
     })
-    .then(([res1, res2]) => this.setState({users: res1, projects: res2}))
+    .then(([res1]) => this.setState({projects: res1}))
   }
 
   render() {
     return (
       <div>
       {this.state.projects.length > 0 ? ( <div>
-        {this.state.redirect}
+        {this.props.redirect}
         <Route path="/projects/:id" render={(routerProps) =>{
               let id = parseInt(routerProps.match.params.id)
               console.log(id)
@@ -42,7 +36,7 @@ class Feed extends React.Component {
         }} />
         <Route exact path="/projects" render={() => (
           <div>
-          {this.state.projects.map(project => <ProjectCard key={"project" + project.id} project={project} user={this.state.users.find(user => user.id === project.user_id)} showProject={this.showProject}/>)}
+          {this.state.projects.map(project => <ProjectCard key={"project" + project.id} project={project} user={project.user} showProject={this.props.showProject}/>)}
           </div>
         )} /> </div>)
         : (<h1>Loading</h1>)
