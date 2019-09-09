@@ -1,7 +1,9 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { Redirect } from 'react-router-dom'
 import { PropTypes } from 'prop-types';
 import TaskCard from './TaskCard'
+import { NewTaskForm } from './NewTaskForm';
+import { ProjectInfo } from './ProjectInfo';
 import './ProjectCss.css';
 
 
@@ -31,7 +33,7 @@ class ProjectSpecs extends Component {
 
     onDrop = (e, cat) => {
         let id = e.dataTransfer.getData("id");
-        let theTask = this.state.tasks.find(task => task.name == id)
+        let theTask = this.state.tasks.find(task => task.name === id)
         let taskId = theTask.id
         
         let tasks = this.state.tasks.filter((task) => {
@@ -49,6 +51,15 @@ class ProjectSpecs extends Component {
             method: "PATCH",
             headers:{'Content-Type': 'application/json'},
             body: JSON.stringify({ category: cat })
+        })
+    }
+
+    addTask = (taskObj) => {
+        this.setState( { tasks: [taskObj, ...this.state.tasks] } );
+        fetch('http://localhost:3000/tasks',{
+            method: "POST",
+            headers:{'Content-Type': 'application/json'},
+            body: JSON.stringify( taskObj )
         })
     }
 
@@ -74,6 +85,7 @@ class ProjectSpecs extends Component {
         const { name } = this.props.project;
         
         return (
+            <Fragment>
             <div className="container-drag">
                 <h2>{name}</h2>
 
@@ -100,8 +112,13 @@ class ProjectSpecs extends Component {
                     {tasks.complete}
                 </div>
 
+                <div class="project-sidebar">
+                <ProjectInfo key={this.props.project.id} project={this.props.project}/>
+                <NewTaskForm key={this.props.project.id} project={this.props.project} addTask={this.addTask}/>
+                </div>
                 </div>
             </div>
+            </Fragment>
         );
     }
     
