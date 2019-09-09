@@ -10,7 +10,7 @@ export class TaskCard extends Component {
     }
 
     displayDescription = () => {
-        this.setState({ clicked: true })
+        this.setState({ clicked: !this.state.clicked })
     }
 
     render() {
@@ -23,8 +23,11 @@ export class TaskCard extends Component {
             <Fragment>
                 <div 
                 className="task-card-name"
-                clickHandler={this.displayDescription}>
+                onClick={this.displayDescription}>
                 {name}</div>
+                {isClicked ? (<div
+                className="task-card-description">
+                {description}</div>) : (<div></div>)}
             </Fragment>
         )
     }
