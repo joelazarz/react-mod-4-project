@@ -36,7 +36,7 @@ class App extends Component {
           {this.state.redirect}
           <Route exact path="/" component={Login}/>
           <Route exact path="/new-project" render={() => <ProjectForm showProject={this.showProject} redirect={this.state.redirect}/>} />
-          <Route path="/projects" render={() => <Feed showProject={this.showProject} redirect={this.state.redirect}/>} /> 
+          <Route path="/projects" render={() => <Feed showProject={this.showProject} redirect={this.state.redirect} user={user}/>} /> 
           <Route path={`/users/${user.id}`} render={() => <UserProfile user={user} drawProjectCard={this.drawProjectCard}/>} />
           
         </Router>

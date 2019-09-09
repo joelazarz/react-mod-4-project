@@ -9,13 +9,19 @@ import './ProjectCss.css';
 
 class ProjectSpecs extends Component {
 
-    state = { tasks: [] }
+    state = { tasks: [],
+        collaborator: false,
+       
+    }
 
     componentDidMount(){
         const projId = this.props.projectId;
         fetch(`http://localhost:3000/projects/${projId}`)
         .then(resp => resp.json())
         .then(data => this.setState({ tasks: data.tasks }))
+        if (this.props.project.user.id !== this.props.user.id && this.props.project.users.some(user => user.id === this.props.user.id)) {
+            this.setState({collaborator: true})
+        }
     }
 
     static propTypes = {
@@ -44,6 +50,9 @@ class ProjectSpecs extends Component {
         });
         this.setState({ ...this.state,tasks });
         this.patchFunc(cat, taskId)
+        if (theTask.users.length < 1 && cat === "wip") {
+            this.assignTask(taskId)
+        }
     }
 
     patchFunc = (cat, taskId) => {       
@@ -54,13 +63,33 @@ class ProjectSpecs extends Component {
         })
     }
 
+    assignTask = (taskId) => {
+        fetch('http://localhost:3000/user_tasks',{
+            method: "POST",
+            headers:{'Content-Type': 'application/json'},
+            body: JSON.stringify({user_id: this.props.user.id, task_id: taskId})
+        })
+        // .then(this.setState({tasks: [this.state.tasks.filter(taskObj => taskObj.id !== theTask.id), theTask]}))
+        
+    }
+
     addTask = (taskObj) => {
-        this.setState( { tasks: [taskObj, ...this.state.tasks] } );
         fetch('http://localhost:3000/tasks',{
             method: "POST",
             headers:{'Content-Type': 'application/json'},
             body: JSON.stringify( taskObj )
         })
+        .then(resp => resp.json())
+        .then(data => this.setState( { tasks: [...this.state.tasks, data] } ))
+    }
+
+    collaborate = () => {
+        fetch('http://localhost:3000/user_projects',{
+            method: "POST",
+            headers:{'Content-Type': 'application/json'},
+            body: JSON.stringify({user_id: this.props.user.id, project_id: this.props.project.id})
+        })
+        this.setState({collaborator: true})
     }
 
     render() {
@@ -69,13 +98,13 @@ class ProjectSpecs extends Component {
         
         this.state.tasks.forEach ((task) => {
             tasks[task.category].push(
-                <div key={task.name} 
+                <div key={task.name+task.id} 
                 onDragStart = {(e) => this.onDragStart(e, task.name)}
                 draggable
                 className="draggable"
                 id={task.category}
                 >
-            <TaskCard key={task.id} task={task} />
+            <TaskCard key={"task"+task.id} task={task} assigned={this.state.assigned} />
             </div>
             );
         });
@@ -86,6 +115,7 @@ class ProjectSpecs extends Component {
         
         return (
             <Fragment>
+            {this.props.project.user.id === this.props.user.id ? <div></div> : this.state.collaborator ? (<h3>You are collaborating on this project!</h3>) : (<button onClick={this.collaborate}>Collaborate on this Project</button>)}    
             <div className="container-drag">
                 <h2>{name}</h2>
 
@@ -112,9 +142,9 @@ class ProjectSpecs extends Component {
                     {tasks.complete}
                 </div>
 
-                <div class="project-sidebar">
-                <ProjectInfo key={this.props.project.id} project={this.props.project}/>
-                <NewTaskForm key={this.props.project.id} project={this.props.project} addTask={this.addTask}/>
+                <div className="project-sidebar">
+                <ProjectInfo key={"info" + this.props.project.id} project={this.props.project}/>
+                <NewTaskForm key={"new-task"+this.props.project.id} project={this.props.project} addTask={this.addTask}/>
                 </div>
                 </div>
             </div>
