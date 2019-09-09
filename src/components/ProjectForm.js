@@ -33,22 +33,60 @@ class ProjectForm extends React.Component {
   render(){
 
     return (
+      
     <div className="new-project-form-display">
       <form onSubmit={this.createProject}>
+
         <div className="form-group">
-          <label><input class="form-control" placeholder="Project Name" type="text" name="name" value={this.state.name} onChange={this.handleChange}/></label>
+          <label>
+            <input 
+            className="form-control" 
+            placeholder="Project Name" 
+            type="text" 
+            name="name" 
+            value={this.state.name} 
+            onChange={this.handleChange}/>
+            </label>
         </div>
+
         <div className="form-group">
-          <label><textarea class="form-control" placeholder="Project Description" type="text" name="description" value={this.state.description} onChange={this.handleChange}/></label>
+          <label>
+            <textarea 
+            className="form-control" 
+            placeholder="Project Description" 
+            type="text" name="description" 
+            value={this.state.description} 
+            onChange={this.handleChange}/>
+            </label>
         </div>
+
         <div className="form-group">
-          <label><input class="form-control" placeholder="Github Link" type="text" name="repo_link" value={this.state.repo_link} onChange={this.handleChange}/></label>
+          <label>
+            <input 
+            className="form-control" 
+            placeholder="Github Link" 
+            type="text" 
+            name="repo_link" 
+            value={this.state.repo_link} 
+            onChange={this.handleChange}/>
+            </label>
         </div>
+
         <div className="form-group">
-          <label><input input class="form-control" placeholder="Project Languages" type="text" name="languages" value={this.state.languages} onChange={this.handleChange}/></label>
+          <label>
+            <input 
+            className="form-control" 
+            placeholder="Project Languages" 
+            type="text" 
+            name="languages" 
+            value={this.state.languages} 
+            onChange={this.handleChange} />
+            </label>
         </div>
+
           <input class="btn btn-primary" type="submit" value="Submit" />
         </form>
+
       </div>)
   }
 }
