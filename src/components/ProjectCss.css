@@ -1,6 +1,7 @@
 
 .project-display {
     display: flex;
+    width: 100vw;
 }
 
 .task-header {
@@ -8,28 +9,28 @@
 }
 
 .wip {
-    width: 30vw;
+    width: 22vw;
     height: 80vh;
     border: 0.3px solid black;
     margin: 1em;
 }
 
 .todo {
-    width: 30vw;
+    width: 22vw;
     height: 80vh;
     border: 0.3px solid black;
     margin: 1em;
 }
 
 .complete {
-    width: 30vw;
+    width: 22vw;
     height: 80vh;
     border: 0.3px solid black;
     margin: 1em;
 }
 
 #todo {
-    width:20vw;
+    width: 22vw;
     flex: 1;
     background: #f2f2f2;
     border: 1px solid #e6e6e6;
@@ -38,7 +39,7 @@
 }
 
 #wip {
-    width:20vw;
+    width: 22vw;
     flex: 1;
     background: #f2f2f2;
     border: 1px solid #e6e6e6;
@@ -47,10 +48,34 @@
 }
 
 #complete {
-    width:20vw;
+    width: 22vw;
     flex: 1;
     background: #f2f2f2;
     border: 1px solid #e6e6e6;
     box-sizing: border-box;
     background-color: lightskyblue;
+}
+
+.new-task-form {
+    width: 22vw;
+    height: 37.5vh;
+    border: 0.3px solid black;
+    margin: 1em;
+}
+
+.new-task-header {
+    font-size: 2em;
+    width: 22vw;
+}
+
+.project-sidebar {
+    display: flex;
+    flex-direction: column;
+}
+
+.project-info {
+    width: 22vw;
+    height: 37.5vh;
+    border: 0.3px solid black;
+    margin: 1em;
 }
