@@ -33,17 +33,23 @@
 
 .wip {
     width: 30vw;
-    height: 100vh;
+    height: 80vh;
+    border: 0.3px dotted black;
+    margin: 1em;
 }
 
 .todo {
     width: 30vw;
-    height: 100vh;
+    height: 80vh;
+    border: 0.3px dotted black;
+    margin: 1em;
 }
 
 .complete {
     width: 30vw;
-    height: 100vh;
+    height: 80vh;
+    border: 0.3px dotted black;
+    margin: 1em;
 }
 
 #todo {
