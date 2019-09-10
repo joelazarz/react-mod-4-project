@@ -48,9 +48,11 @@ class ProjectSpecs extends Component {
             return task;
         });
         this.setState({ ...this.state,tasks });
-        this.patchFunc(cat, taskId)
+        
         if (theTask.users.length < 1 && cat === "wip") {
-            this.assignTask(taskId)
+            this.assignTask(cat, taskId)
+        } else {
+            this.patchFunc(cat, taskId)
         }
     }
 
@@ -62,14 +64,19 @@ class ProjectSpecs extends Component {
         })
     }
 
-    assignTask = (taskId) => {
+    assignTask = (cat, taskId) => {
         fetch('http://localhost:3000/user_tasks',{
             method: "POST",
             headers:{'Content-Type': 'application/json'},
             body: JSON.stringify({user_id: this.props.user.id, task_id: taskId})
         })
-        // .then(this.setState({tasks: [this.state.tasks.filter(taskObj => taskObj.id !== theTask.id), theTask]}))
-        
+        .then(resp => resp.json())
+        .then ( data => {
+        let theTask = this.state.tasks.find(task => task.id === data.task_id)
+        console.log(theTask)
+        theTask.users.push(this.props.user)
+        })
+        .then(this.patchFunc(cat, taskId))
     }
 
     addTask = (taskObj) => {
@@ -103,7 +110,7 @@ class ProjectSpecs extends Component {
                 className="draggable"
                 id={task.category}
                 >
-            <TaskCard key={"task"+task.id} task={task} assigned={this.state.assigned} />
+            <TaskCard key={"task"+task.id} task={task} />
             </div>
             );
         });

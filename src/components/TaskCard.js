@@ -16,7 +16,7 @@ export class TaskCard extends Component {
 
     render() {
 
-        const { name, description, users } = this.props.task;
+        const { name, description, users, category } = this.props.task;
 
         const isClicked = this.state.clicked;
         
@@ -27,7 +27,7 @@ export class TaskCard extends Component {
                 <h6 className="text-center">{name}</h6></div>
                 {isClicked ? (
                 <div className="task-card-description">
-                {description}<hr/>  {users.length > 0 ? (<div> Assigned to Task: {users[0].name}</div> ): (<div></div>)}</div>) : (<div></div>)}
+                {description}<hr/>  {category !=="todo" ? (<div> Assigned to Task: {users[0].name}</div> ): null}</div>) : (<div></div>)}
             </Fragment>
         )
     }
