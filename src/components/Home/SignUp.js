@@ -4,6 +4,7 @@ import { withRouter } from 'react-router'
 class SignUp extends Component {
 
     state = {
+        name: '',
         email: '',
         password: ''
     }
@@ -29,7 +30,8 @@ class SignUp extends Component {
             })
     
         this.setState({
-            username: '',
+            name: '',
+            email: '',
             password: ''
         })
     }
@@ -41,6 +43,7 @@ class SignUp extends Component {
             <div>
                 <h2>Sign Up</h2>
                 <form onSubmit={this.handleSubmit}>
+                <label>Name:<input type="text" name="name" value={this.state.name} onChange={this.handleChange}/></label>
                 <label>Email:<input type="text" name="email" value={this.state.email} onChange={this.handleChange}/></label>
                 <label>Password:<input type="password" name="password" value={this.state.password} onChange={this.handleChange}/></label>
                 <input type="submit" value="Submit" />
