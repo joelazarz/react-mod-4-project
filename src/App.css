@@ -1,7 +1,16 @@
 .nav-bar {
   background: rgb(209, 209, 209);
   text-align: left;
-  height: 2em;
+  height: 3em;
+}
+
+.nav-contents{
+  margin-left: 1.5em;
+}
+
+i.fas{
+  color:white;
+  font-size: 1.5em;
 }
 
 .badge {
