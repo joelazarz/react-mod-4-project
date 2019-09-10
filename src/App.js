@@ -58,8 +58,8 @@ class App extends Component {
           <Route exact path="/" render={() => <Home user={this.state.user} setUser={this.setUser} />} />
 
           <Route exact path="/new-project" render={() => <ProjectForm user={this.state.user} showProject={this.showProject} redirect={this.state.redirect}/>} />
-          <Route path="/projects" render={() => <Feed showProject={this.showProject} redirect={this.state.redirect} user={user}/>} /> 
-          <Route path={`/users/${user.id}`} render={() => <UserProfile user={user} drawProjectCard={this.drawProjectCard}/>} />
+          <Route exact path="/projects" render={() => <Feed showProject={this.showProject} redirect={this.state.redirect} user={user}/>} /> 
+          <Route exact path={`/users/${user.id}`} render={() => <UserProfile user={user} drawProjectCard={this.drawProjectCard}/>} />
           
         </Router>
       </Fragment>
