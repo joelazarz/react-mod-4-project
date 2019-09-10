@@ -21,6 +21,13 @@ class Feed extends React.Component {
     .then(([res1]) => this.setState({projects: res1}))
   }
 
+//   deleteProject = (e, project) => {
+//     fetch(`http://localhost:3000/projects/${project.id}`,{
+//         method: "DELETE"
+//     })
+//   .then(this.setState({redirect: <Redirect to={`/users/${this.props.user.id}`}/>}))
+// }
+
   render() {
     return (
       <div>
