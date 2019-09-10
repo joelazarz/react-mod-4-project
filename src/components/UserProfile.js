@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 class UserProfile extends Component {
 
   state = {
-    userObj: {}
+    userObj: null
   }
 
   componentDidMount(){
@@ -17,25 +17,24 @@ class UserProfile extends Component {
   render(){
 
     const {name, github_link} = this.props.user
-    console.log('USER PROFILE STATE:', this.state.userObj)
-    console.log('USER PROFILE OWNED PROJECTS:', this.state.userObj.owned_projects)
-
-    
 
     return (
     <div>
+      {this.state.userObj ? 
+    (<div>
       <h1>{name}</h1>
       <h4>{github_link}</h4>
       <h2>My Projects:</h2>
       <ul>
-        {/* {this.state.userObj.owned_projects.map(project => <li>{this.props.drawProjectCard(project)}</li>)} */}
+        {this.state.userObj.owned_projects.map(project => <li>{this.props.drawProjectCard(project)}</li>)}
       </ul>
       <hr/>
       <h2>Projects I'm Working On:</h2>
       <ul>
-      {/* {this.state.userObj.projects.map(project => <li>{this.props.drawProjectCard(project)}</li>)} */}
+      {this.state.userObj.projects.map(project => <li>{this.props.drawProjectCard(project)}</li>)}
       </ul>
-    </div>
+    </div>) : null}
+    </div>  
   )
   }
   
