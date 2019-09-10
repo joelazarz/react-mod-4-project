@@ -15,12 +15,9 @@ class App extends Component {
   }
 
   componentDidMount() {
-    // check if state.user is null
-    // check if localstorage has a userid
-    // then fetch 
     const token = localStorage.getItem('token')
     if (token) {
-      fetch(`http://localhost:3000/autologin`, {
+      fetch(`http://localhost:3000/autologin`, { 
         headers: {
           'accept': 'application/json', 
           Authorization: token
@@ -28,9 +25,9 @@ class App extends Component {
       })
         .then(response => response.json())
         .then(data => {
+          console.log('COMPDIDMOUNT DATA:', data)
           this.setState({user: data})
-          console.log(data)
-          this.props.history.push('/projects')
+          // this.props.history.push('/projects')
         })        
     }
   }
@@ -50,7 +47,7 @@ class App extends Component {
   }
 
   render() {
-    console.log('APP STATE', this.state)
+    console.log('APP STATE', this.state.user)
     const user = this.state.user
     return (
       <Fragment>
