@@ -41,7 +41,7 @@ class ProjectForm extends React.Component {
         <div className="form-group">
           <label>
             <input 
-            className="form-control" 
+            className="form-control form-control-lg" 
             placeholder="Project Name" 
             type="text" 
             name="name" 
@@ -53,7 +53,7 @@ class ProjectForm extends React.Component {
         <div className="form-group">
           <label>
             <textarea 
-            className="form-control" 
+            className="form-control form-control-lg" 
             placeholder="Project Description" 
             type="text" name="description" 
             value={this.state.description} 
@@ -64,7 +64,7 @@ class ProjectForm extends React.Component {
         <div className="form-group">
           <label>
             <input 
-            className="form-control" 
+            className="form-control form-control-lg" 
             placeholder="Github Link" 
             type="text" 
             name="repo_link" 
@@ -76,7 +76,7 @@ class ProjectForm extends React.Component {
         <div className="form-group">
           <label>
             <input 
-            className="form-control" 
+            className="form-control form-control-lg" 
             placeholder="Project Languages" 
             type="text" 
             name="languages" 
