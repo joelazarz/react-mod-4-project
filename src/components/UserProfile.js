@@ -9,9 +9,7 @@ class UserProfile extends Component {
   componentDidMount(){
     fetch(`http://localhost:3000/users/${this.props.user.id}`)
     .then(resp => resp.json())
-    // .then(data => console.log('USERPROFILE', data))
-    .then(data => {this.setState({userObj: data}) 
-    console.log('STATE AFTER setState', this.state)})
+    .then(data => this.setState({userObj: data})) 
   }
 
   render(){
