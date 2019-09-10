@@ -1,11 +1,31 @@
 
+
 .project-display {
     display: flex;
     width: 100vw;
 }
 
+.project-header {
+    margin-top: 0.4em;
+    display: flex;
+    flex-direction: row;
+}
+
+.project-header h2 {
+    margin-left: 1.5em;
+    margin-right: 1.5em;
+}
+
+.project-header button {
+    font-size: 0.7em;
+}
+
 .task-header {
     font-size: 2em;
+}
+
+.collab-badge {
+    font-size: 0.4em;
 }
 
 .wip {
@@ -34,13 +54,13 @@
 
 #todo {
     margin-top: 0.5em;
-    margin-top: 0.5em;
+    margin-bottom: 0.5em;
     margin-left: 1em;
     width: 20vw;
     flex: 1;
     background: #f2f2f2;
     border: 1px solid #5c5c5c;
-    border-radius: 0.5;
+    border-radius: 0.3em;
     box-sizing: border-box;
     background-color: lightgreen;
 }
@@ -48,12 +68,12 @@
 #wip {
     margin-left: 1em;
     margin-top: 0.5em;
-    margin-top: 0.5em;
+    margin-bottom: 0.5em;
     width: 20vw;
     flex: 1;
     background: #f2f2f2;
     border: 1px solid #5c5c5c;
-    border-radius: 0.5;
+    border-radius: 0.3em;
     box-sizing: border-box;
     background-color: rgb(250, 255, 180);
 }
@@ -61,12 +81,12 @@
 #complete {
     margin-left: 1em;
     margin-top: 0.5em;
-    margin-top: 0.5em;
+    margin-bottom: 0.5em;
     width: 20vw;
     flex: 1;
     background: #f2f2f2;
     border: 1px solid #5c5c5c;
-    border-radius: 0.5;
+    border-radius: 0.3em;
     box-sizing: border-box;
     background-color: lightskyblue;
 }
@@ -84,9 +104,15 @@
     margin-left: 3em;
 }
 
+.new-task-form i.fas{
+    font-size: 0.9em;
+    color: #7a7a7a;
+}
+
 .new-task-header {
     font-size: 2em;
     width: 22vw;
+    margin-bottom: 0.3em;
 }
 
 .project-sidebar {

@@ -11,7 +11,6 @@ class ProjectSpecs extends Component {
 
     state = { tasks: [],
         collaborator: false,
-       
     }
 
     componentDidMount(){
@@ -115,10 +114,12 @@ class ProjectSpecs extends Component {
         
         return (
             <Fragment>
-            {this.props.project.user.id === this.props.user.id ? <div></div> : this.state.collaborator ? (<h3>You are collaborating on this project!</h3>) : (<button onClick={this.collaborate}>Collaborate on this Project</button>)}    
             <div className="container-drag">
+                <div className="project-header">
                 <h2>{name}</h2>
 
+            {this.props.project.user.id === this.props.user.id ? <div></div> : this.state.collaborator ? (<div className="collab-badge"><h2>You are collaborating on this project!</h2></div>) : (<button class="btn btn-light btn-sm" onClick={this.collaborate}>Collaborate on this Project</button>)}    
+                </div>
                 <div className="project-display">
 
                 <div className="todo"
