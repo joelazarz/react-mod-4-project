@@ -9,7 +9,7 @@ class ProjectForm extends React.Component {
     description: "",
     repo_link: "",
     languages: "",
-    user_id: 1
+    user_id: this.props.user.id
   }
 
   handleChange = (e) => {
@@ -18,7 +18,7 @@ class ProjectForm extends React.Component {
 
   createProject = (e) => {
     e.preventDefault()
-    this.setState({user_id: 1})
+    this.setState({user_id: this.props.user.id})
     fetch("http://localhost:3000/projects", {
       method: "POST",
       headers: {'Content-Type': 'application/json' },
