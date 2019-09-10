@@ -15,12 +15,6 @@ class App extends Component {
   }
 
   componentDidMount() {
-<<<<<<< HEAD
-    fetch("http://localhost:3000/users/")
-    .then(resp => resp.json())
-    .then(data => {this.setState({users: data, user: data[0]})
-    })
-=======
     const token = localStorage.getItem('token')
     if (token) {
       fetch(`http://localhost:3000/autologin`, { 
@@ -36,7 +30,6 @@ class App extends Component {
           // this.props.history.push('/projects')
         })        
     }
->>>>>>> bba4e8c609635db59826cd203ec3185eb84e8ab7
   }
 
 
