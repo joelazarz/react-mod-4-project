@@ -33,6 +33,8 @@
 }
 
 #todo {
+    margin-top: 0.5em;
+    margin-top: 0.5em;
     margin-left: 1em;
     width: 20vw;
     flex: 1;
@@ -45,6 +47,8 @@
 
 #wip {
     margin-left: 1em;
+    margin-top: 0.5em;
+    margin-top: 0.5em;
     width: 20vw;
     flex: 1;
     background: #f2f2f2;
@@ -56,6 +60,8 @@
 
 #complete {
     margin-left: 1em;
+    margin-top: 0.5em;
+    margin-top: 0.5em;
     width: 20vw;
     flex: 1;
     background: #f2f2f2;
@@ -71,6 +77,11 @@
     border: 0.5px solid black;
     border-radius: 0.5em;
     margin: 1em;
+}
+
+.new-task-form-content {
+    margin-top: 1em;
+    margin-left: 3em;
 }
 
 .new-task-header {

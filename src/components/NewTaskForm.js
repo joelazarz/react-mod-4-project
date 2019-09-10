@@ -29,12 +29,18 @@ export class NewTaskForm extends Component {
     
         return (
             <div className="new-task-form">
+                <div className="new-task-form-content">
                 <div className="new-task-header">New Task Form</div>
                 <form onSubmit={this.submitHandler}>
-                <input type="text" name="name" placeholder="Task name..." value={name} onChange={this.changeHandler}/>
-                <input type="text" name="description" placeholder="Task Description..." value={description} onChange={this.changeHandler}/>
-                <input type="submit" />
+                <div className="form-group">
+                    <input type="text" name="name" placeholder="Task name..." value={name} onChange={this.changeHandler}/>
+                </div>
+                <div className="form-group">
+                    <input type="text" name="description" placeholder="Task Description..." value={description} onChange={this.changeHandler}/>
+                </div>
+                <input class="btn btn-primary" type="submit" />
                 </form>
+                </div>
             </div>
         )
     }
