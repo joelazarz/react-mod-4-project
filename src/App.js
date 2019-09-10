@@ -41,7 +41,7 @@ class App extends Component {
   }
 
   drawProjectCard = (project) => {
-    return (<ProjectCard project={project} user={this.state.user.find(user => user.id === project.user_id)} key={"project"+project.id} showProject={this.showProject} />)
+    return (<ProjectCard project={project} user={this.state.users.find(user => user.id === project.user_id)} key={"project"+project.id} showProject={this.showProject} />)
   }
   
   
@@ -50,6 +50,7 @@ class App extends Component {
   }
 
   render() {
+    console.log('APP STATE', this.state)
     const user = this.state.user
     return (
       <Fragment>

@@ -25,8 +25,8 @@ class Login extends Component {
 
         localStorage.setItem('token', data.token)
 
-        console.log(data)
-        this.props.setUser(data.user)
+        console.log('LOGIN HANDLE SUBMIT:', data)
+        this.props.setUser(data)
         this.props.history.push('/projects')
       })
 
