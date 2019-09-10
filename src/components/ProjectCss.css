@@ -6,9 +6,11 @@
 }
 
 .project-header {
-    margin-top: 0.4em;
+    margin-top: 0.5em;
+    margin-right: 3em;
     display: flex;
     flex-direction: row;
+    justify-content: center;
 }
 
 .project-header h2 {
@@ -22,6 +24,7 @@
 
 .task-header {
     font-size: 2em;
+    margin-left: 2em;
 }
 
 .collab-badge {

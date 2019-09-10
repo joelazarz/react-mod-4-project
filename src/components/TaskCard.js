@@ -22,12 +22,11 @@ export class TaskCard extends Component {
         
         return (
             <Fragment>
-                <div 
-                className="task-card-name"
+                <div className="task-card-name"
                 onClick={this.displayDescription}>
-                {name}</div>
-                {isClicked ? (<div
-                className="task-card-description">
+                <h6 className="text-center">{name}</h6></div>
+                {isClicked ? (
+                <div className="task-card-description">
                 {description}<hr/>  {users.length > 0 ? (<div> Assigned to Task: {users[0].name}</div> ): (<div></div>)}</div>) : (<div></div>)}
             </Fragment>
         )
