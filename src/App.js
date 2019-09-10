@@ -38,7 +38,7 @@ class App extends Component {
   }
 
   drawProjectCard = (project) => {
-    return (<ProjectCard project={project} user={this.state.users.find(user => user.id === project.user_id)} key={"project"+project.id} showProject={this.showProject} />)
+    return (<ProjectCard project={project} user={this.state.user} key={"project" + project.id} showProject={this.showProject} />)
   }
   
   

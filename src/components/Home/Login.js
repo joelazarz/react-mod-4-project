@@ -40,12 +40,16 @@ class Login extends Component {
     console.log('LOGIN PROPS: ', this.props)
     console.log('LOGIN STATE:', this.state)
     return (
-      <div>
+      <div className="new-project-form-display">
       <h2>Log-in</h2>
         <form onSubmit={this.handleSubmit}>
-        <label>Email:<input type="email" name="email" value={this.state.email} onChange={this.handleChange}/></label>
-        <label>Password:<input type="password" name="password" value={this.state.password} onChange={this.handleChange}/></label>
-        <input type="submit" value="Submit" />
+        <div className="form-group">
+        <label>Email:<input className="form-control form-control-lg" type="email" name="email" value={this.state.email} onChange={this.handleChange}/></label>
+        </div>
+        <div className="form-group">
+        <label>Password:<input className="form-control form-control-lg" type="password" name="password" value={this.state.password} onChange={this.handleChange}/></label>
+        </div>
+        <input className="btn btn-primary" type="submit" value="Submit" />
         </form>
       </div>
     )

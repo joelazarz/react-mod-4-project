@@ -40,13 +40,19 @@ class SignUp extends Component {
         console.log('SIGN UP PROPS: ', this.props)
         console.log('SIGN UP  STATE:', this.state)
         return (
-            <div>
+            <div className="new-project-form-display">
                 <h2>Sign Up</h2>
                 <form onSubmit={this.handleSubmit}>
-                <label>Name:<input type="text" name="name" value={this.state.name} onChange={this.handleChange}/></label>
-                <label>Email:<input type="text" name="email" value={this.state.email} onChange={this.handleChange}/></label>
-                <label>Password:<input type="password" name="password" value={this.state.password} onChange={this.handleChange}/></label>
-                <input type="submit" value="Submit" />
+                <div className="form-group">
+                <label>Name:<input className="form-control form-control-lg" type="text" name="name" value={this.state.name} onChange={this.handleChange}/></label>
+                </div>
+                <div className="form-group">
+                <label>Email:<input className="form-control form-control-lg" type="text" name="email" value={this.state.email} onChange={this.handleChange}/></label>
+                </div>
+                <div className="form-group">
+                <label>Password:<input className="form-control form-control-lg" type="password" name="password" value={this.state.password} onChange={this.handleChange}/></label>
+                </div>
+                <input className="btn btn-primary" type="submit" value="Submit" />
                 </form>
             </div>
         )

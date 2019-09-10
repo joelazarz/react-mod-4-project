@@ -85,7 +85,7 @@ class ProjectForm extends React.Component {
             </label>
         </div>
 
-          <input class="btn btn-primary" type="submit" value="Submit" />
+          <input className="btn btn-primary" type="submit" value="Submit" />
         </form>
 
       </div>)

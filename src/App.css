@@ -19,6 +19,12 @@ i.fas{
   font-size: 1.5em;
 }
 
+.feed-project-card{
+  margin-top: 1em;
+  margin-left: 6em;
+  margin-right: 6em;
+}
+
 .new-project-form-display {
   text-align: center;
   padding: 1em;
@@ -37,5 +43,9 @@ i.fas{
 
 label {
   width: 100%
+}
+
+.btn .btn-secondary{
+  margin-left: 3em;
 }
 

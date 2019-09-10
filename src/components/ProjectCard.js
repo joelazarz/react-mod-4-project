@@ -8,13 +8,18 @@ const ProjectCard = props => {
   return (
 
     <div onClick={(e) => props.showProject(e, project)}>
-
-      <h1>{project.name}</h1>
+      <div className="feed-project-card">
+      <div className="card">
+      <div className="card-body">
+      <h4><div className="card-title">{project.name}</div></h4>
       <p>Languages: {project.languages} 
       </p>
-      <p> Project Owner: {props.user.name}</p>
-
+      <h6> Project Owner: {props.user.name}</h6>
+      </div>
     </div>
+    </div>
+    </div>
+
   )
 }
 

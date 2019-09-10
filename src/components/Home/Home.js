@@ -16,7 +16,7 @@ export class Home extends Component {
                 ? <Login setUser={this.props.setUser} />
                 : <SignUp setUser={this.props.setUser} />
             }
-            <button onClick={() => this.setState({LoginForm: !this.state.LoginForm})}>Toggle Login / Sign up</button>
+            <button className="btn btn-secondary" onClick={() => this.setState({LoginForm: !this.state.LoginForm})}>Toggle Login / Sign up</button>
             </div>
         )
     }
