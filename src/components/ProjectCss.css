@@ -10,7 +10,7 @@
     margin-right: 3em;
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: start;
 }
 
 .project-header h2 {
@@ -34,7 +34,7 @@
 .wip {
     width: 22vw;
     height: 80vh;
-    border: 0.5px solid black;
+    border: 0.5px solid rgb(112, 112, 112);
     border-radius: 0.5em;
     margin: 1em;
 }
@@ -42,7 +42,7 @@
 .todo {
     width: 22vw;
     height: 80vh;
-    border: 0.5px solid black;
+    border: 0.5px solid rgb(112, 112, 112);
     border-radius: 0.5em;
     margin: 1em;
 }
@@ -50,7 +50,7 @@
 .complete {
     width: 22vw;
     height: 80vh;
-    border: 0.5px solid black;
+    border: 0.5px solid  rgb(112, 112, 112);
     border-radius: 0.5em;
     margin: 1em;
 }
@@ -97,14 +97,15 @@
 .new-task-form {
     width: 22vw;
     height: 37.5vh;
-    border: 0.5px solid black;
+    border: 1px solid  rgb(112, 112, 112);
     border-radius: 0.5em;
     margin: 1em;
 }
 
 .new-task-form-content {
     margin-top: 1em;
-    margin-left: 3em;
+    margin-left: 1.5em;
+    margin-right: 1.5em
 }
 
 .new-task-form i.fas{
@@ -126,7 +127,7 @@
 .project-info {
     width: 22vw;
     height: 37.5vh;
-    border: 0.5px solid black;
+    border: 1px solid rgb(112, 112, 112);
     border-radius: 0.5em;
     margin: 1em;
 }
