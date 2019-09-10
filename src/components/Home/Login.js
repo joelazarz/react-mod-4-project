@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { Component } from 'react'
+import { withRouter } from 'react-router'
 
-class Login extends React.Component {
+class Login extends Component {
   
   state={
     LoginForm: false,
@@ -24,7 +25,9 @@ class Login extends React.Component {
   render() {
     return(
       <div>
-      {this.state.LoginForm ? (<div><h1>Log-in</h1>
+      {this.state.LoginForm ? 
+        
+        (<div><h1>Log-in</h1>
         <form>
         <label>E-mail:<input type="email" name="email" value={this.state.user.email} onChange={this.handleChange}/></label>
           <label>Password:<input type="password" name="password" value={this.state.user.password} onChange={this.handleChange}/></label>
@@ -33,6 +36,7 @@ class Login extends React.Component {
         <hr/>
         <button onClick={() => this.setState({LoginForm: !this.state.LoginForm})}>Sign Up</button></div>)
         :
+
         (<div><h1>Sign Up</h1>
         <form>
           <label>Name:<input type="text" name="name" value={this.state.user.name} onChange={this.handleChange}/></label>
@@ -49,4 +53,4 @@ class Login extends React.Component {
   }
 }
 
-export default Login
+export default withRouter(Login)

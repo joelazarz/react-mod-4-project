@@ -4,7 +4,7 @@ import Feed from "./containers/Feed"
 import { NavBar } from './layout/NavBar';
 import UserProfile from "./components/UserProfile"
 import ProjectCard from "./components/ProjectCard"
-import Login from "./components/Login"
+import Login from "./components/Home/Login"
 import ProjectForm from "./components/ProjectForm"
 
 class App extends Component {
