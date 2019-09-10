@@ -9,7 +9,7 @@ const ProjectCard = props => {
 
     <div onClick={(e) => props.showProject(e, project)}>
       <div className="feed-project-card">
-      <div className="card">
+      <div className="card text-center">
       <div className="card-body">
       <h4><div className="card-title">{project.name}</div></h4>
       <p>Languages: {project.languages} 
