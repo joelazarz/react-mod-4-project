@@ -24,7 +24,10 @@
 
 .task-header {
     font-size: 2em;
-    margin-left: 2em;
+    /* margin-left: 2em; */
+    text-align: center;
+    position: relative;
+    bottom: 0;
 }
 
 .collab-badge {
@@ -37,6 +40,9 @@
     border: 0.5px solid rgb(112, 112, 112);
     border-radius: 0.5em;
     margin: 1em;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
 }
 
 .todo {
@@ -45,6 +51,9 @@
     border: 0.5px solid rgb(112, 112, 112);
     border-radius: 0.5em;
     margin: 1em;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
 }
 
 .complete {
@@ -53,14 +62,18 @@
     border: 0.5px solid  rgb(112, 112, 112);
     border-radius: 0.5em;
     margin: 1em;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
 }
 
 #todo {
     margin-top: 0.5em;
     margin-bottom: 0.5em;
-    margin-left: 1em;
+    margin-left: 0.5em;
+    margin-right: 0.5em;
     width: 20vw;
-    flex: 1;
+    /* flex: 1; */
     background: #f2f2f2;
     border: 1px solid #5c5c5c;
     border-radius: 0.3em;
@@ -69,11 +82,12 @@
 }
 
 #wip {
-    margin-left: 1em;
+    margin-left: 0.5em;
     margin-top: 0.5em;
     margin-bottom: 0.5em;
+    margin-right: 0.5em;
     width: 20vw;
-    flex: 1;
+    /* flex: 1; */
     background: #f2f2f2;
     border: 1px solid #5c5c5c;
     border-radius: 0.3em;
@@ -82,11 +96,12 @@
 }
 
 #complete {
-    margin-left: 1em;
+    margin-left: 0.5em;
     margin-top: 0.5em;
     margin-bottom: 0.5em;
+    margin-right: 0.5em;
     width: 20vw;
-    flex: 1;
+    /* flex: 1; */
     background: #f2f2f2;
     border: 1px solid #5c5c5c;
     border-radius: 0.3em;
