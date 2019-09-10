@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react';
-import { Link } from 'react-router-dom'
+import { Redirect, Link } from 'react-router-dom'
 import { PropTypes } from 'prop-types';
 import TaskCard from './TaskCard'
 import { NewTaskForm } from './NewTaskForm';
@@ -102,6 +102,7 @@ class ProjectSpecs extends Component {
         fetch(`http://localhost:3000/projects/${this.props.project.id}`,{
             method: "DELETE"
         })
+        .then(resp => {if (resp) { return (<Redirect to={`/users/${this.props.user.id}`}/>)}})
     }
 
     render() {
@@ -131,7 +132,10 @@ class ProjectSpecs extends Component {
                 <div className="project-header">
                 <h2>{name}</h2>
 
-            {this.props.project.user.id === this.props.user.id ? (<Link to={`/users/${this.props.user.id}`} className="btn btn-danger" onClick={this.deleteProject}>Delete Project</Link>)
+                {/* (<Link to={`/users/${this.props.user.id}`} className="btn btn-danger" onClick={this.deleteProject}>Delete Project</Link>) */}
+
+
+            {this.props.project.user.id === this.props.user.id ? (<button className="btn btn-danger" onClick={this.deleteProject}>Delete Project</button>)
             : this.state.collaborator ? (<div className="collab-badge"><h2>You are collaborating on this project!</h2></div>) : (<button class="btn btn-light btn-sm" onClick={this.collaborate}>Collaborate on this Project</button>)}    
                 </div>
                 <div className="project-display">

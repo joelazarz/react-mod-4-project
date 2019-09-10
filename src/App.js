@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react'
-import { BrowserRouter as Router, Route, Redirect} from 'react-router-dom'
+import { BrowserRouter as Router, Route, Redirect, browserHistory} from 'react-router-dom'
 import Feed from "./containers/Feed"
 import { NavBar } from './layout/NavBar';
 import UserProfile from "./components/UserProfile"
@@ -18,7 +18,8 @@ class App extends Component {
   componentDidMount() {
     fetch("http://localhost:3000/users/")
     .then(resp => resp.json())
-    .then(data => this.setState({users: data, user: data[1]}))
+    .then(data => {this.setState({users: data, user: data[0]})
+    })
   }
 
   showProject = (e, project) => {

@@ -30,7 +30,7 @@ export class NewTaskForm extends Component {
         return (
             <div className="new-task-form">
                 <div className="new-task-form-content">
-                <div className="new-task-header"><i class="fas fa-sticky-note"></i> New Task </div>
+                <div className="new-task-header"><i className="fas fa-sticky-note"></i> New Task </div>
                 <form onSubmit={this.submitHandler}>
                 <div className="form-group">
                     <input className="form-control" type="text" name="name" placeholder="Task name..." value={name} onChange={this.changeHandler}/>
@@ -38,7 +38,7 @@ export class NewTaskForm extends Component {
                 <div className="form-group">
                     <input className="form-control" type="text" name="description" placeholder="Task Description..." value={description} onChange={this.changeHandler}/>
                 </div>
-                <input class="btn btn-primary" type="submit" />
+                <input className="btn btn-primary" type="submit" />
                 </form>
                 </div>
             </div>
