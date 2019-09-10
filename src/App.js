@@ -4,23 +4,41 @@ import Feed from "./containers/Feed"
 import { NavBar } from './layout/NavBar';
 import UserProfile from "./components/UserProfile"
 import ProjectCard from "./components/ProjectCard"
-import Login from "./components/Login"
+import Home from "./components/Home/Home"
 import ProjectForm from "./components/ProjectForm"
 
 class App extends Component {
 
-  state={
-    users: [],
+  state= {
     user: {},
     redirect: ""
   }
 
   componentDidMount() {
+<<<<<<< HEAD
     fetch("http://localhost:3000/users/")
     .then(resp => resp.json())
     .then(data => {this.setState({users: data, user: data[0]})
     })
+=======
+    const token = localStorage.getItem('token')
+    if (token) {
+      fetch(`http://localhost:3000/autologin`, { 
+        headers: {
+          'accept': 'application/json', 
+          Authorization: token
+        }
+      })
+        .then(response => response.json())
+        .then(data => {
+          console.log('COMPDIDMOUNT DATA:', data)
+          this.setState({user: data})
+          // this.props.history.push('/projects')
+        })        
+    }
+>>>>>>> bba4e8c609635db59826cd203ec3185eb84e8ab7
   }
+
 
   showProject = (e, project) => {
     this.setState({redirect: <Redirect to={`/projects/${project.id}`}/>})
@@ -28,16 +46,24 @@ class App extends Component {
 
   drawProjectCard = (project) => {
     return (<ProjectCard project={project} user={this.state.users.find(user => user.id === project.user_id)} key={"project"+project.id} showProject={this.showProject} />)
-  } 
+  }
+  
+  
+  setUser = user => {
+    this.setState({ user: user })
+  }
 
   render() {
+    console.log('APP STATE', this.state.user)
     const user = this.state.user
     return (
       <Fragment>
         <Router>
         <NavBar user={this.state.user}/>
           {this.state.redirect}
-          <Route exact path="/" component={Login}/>
+
+          <Route exact path="/" render={() => <Home user={this.state.user} setUser={this.setUser} />} />
+
           <Route exact path="/new-project" render={() => <ProjectForm showProject={this.showProject} redirect={this.state.redirect}/>} />
           <Route path="/projects" render={() => <Feed showProject={this.showProject} redirect={this.state.redirect} user={user}/>} /> 
           <Route path={`/users/${user.id}`} render={() => <UserProfile user={user} drawProjectCard={this.drawProjectCard}/>} />
