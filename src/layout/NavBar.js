@@ -20,6 +20,7 @@ export class NavBar extends Component {
                 <Link to='/projects' className="btn btn-primary"> Project Feed</Link>
                 <Link to={`/users/${id}`} className="btn btn-primary"> Profile </Link>
                 <Link to='/new-project' className="btn btn-primary"> New Project</Link>
+                <>you are logged in {id}</>
                 </div>
             </div>
         )
