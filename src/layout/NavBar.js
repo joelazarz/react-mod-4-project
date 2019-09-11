@@ -24,7 +24,9 @@ export class NavBar extends Component {
                 <div className='login-status'>
                     <h5 className='login-badge'><span class="badge badge-success"> Welcome {name}</span></h5>
                 </div>
-                    : (<></>)
+                    : (<div className='login-status'>
+                    <Link to='/'><h5 className='login-badge'><span class="badge badge-light"> Please Login or Sign Up</span></h5></Link>
+                </div>)
                 }
                 </div>
             </div>
