@@ -27,9 +27,8 @@ class UserProfile extends Component {
         {this.state.userObj.owned_projects.map(project =><div>{this.props.drawProjectCard(project)}</div>)}
       <hr/>
       <h2>Projects I'm Working On:</h2>
-      <ul>
-      {this.state.userObj.projects.map(project => <li>{this.props.drawProjectCard(project)}</li>)}
-      </ul>
+      {this.state.userObj.projects.map(project => <div>{this.props.drawProjectCard(project)}</div>)}
+    
     </div>) : (<Spinner />)}
     </div>  
   )
