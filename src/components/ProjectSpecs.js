@@ -97,6 +97,8 @@ class ProjectSpecs extends Component {
             headers:{'Content-Type': 'application/json'},
             body: JSON.stringify({user_id: this.props.user.id, project_id: this.props.project.id})
         })
+        .then(resp => resp.json())
+        .then(data => this.props.project.user_projects.push(data))
         this.setState({collaborator: true})
     }
 
@@ -112,6 +114,14 @@ class ProjectSpecs extends Component {
             method: "DELETE"
         } )
         .then(resp => this.setState({tasks: this.state.tasks.filter(taskObj => taskObj.id !== task.id)}))
+    }
+
+    leaveProject = () => {
+        let user_project = this.props.project.user_projects.find(user_project => user_project.user_id === this.props.user.id)
+        fetch(`http://localhost:3000/user_projects/${user_project.id}`, {
+            method: "DELETE"
+        } )
+        .then(resp => this.setState({redirect: <Redirect to={`/users/${this.props.user.id}`}/>}))
     }
 
     render() {
@@ -148,7 +158,7 @@ class ProjectSpecs extends Component {
 
 
             {this.props.project.user.id === this.props.user.id ? (<button className="btn btn-danger" onClick={this.deleteProject}>Delete Project</button>)
-            : this.state.collaborator ? (<div className="collab-badge"><h6>You are collaborating on this project!</h6></div>) : (<button className="btn btn-light btn-sm" onClick={this.collaborate}>Collaborate on this Project</button>)}    
+            : this.state.collaborator ? (<div className="collab-badge"><h6>You are collaborating on this project!</h6> <button className="btn btn-light btn-warning" onClick={this.leaveProject}>Leave Project</button></div>) : (<button className="btn btn-light btn-sm" onClick={this.collaborate}>Collaborate on this Project</button>)}    
                 </div>
                 <div className="project-display">
 
