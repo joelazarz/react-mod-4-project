@@ -25,10 +25,6 @@ export class NavBar extends Component {
         this.setState({ login : false })
     }
 
-    logIn = () => {
-        window.localStorage.removeItem('token')
-    }
-
     render() {
 
         const { id, name } = this.props.user
@@ -45,7 +41,7 @@ export class NavBar extends Component {
                     <Link to='/'><h5 onClick={this.logOut} className='login-badge'><span class="badge badge-dark"> Logout</span></h5></Link>
                 </div>
                     : (<div className='login-status'>
-                    <Link to='/'><h5 onClick={this.logIn} className='login-badge'><span class="badge badge-light"> Please Login or Sign Up</span></h5></Link>
+                    <Link to='/'><h5 className='login-badge'><span class="badge badge-light"> Please Login or Sign Up</span></h5></Link>
                 </div>)
                 }
                 </div>
