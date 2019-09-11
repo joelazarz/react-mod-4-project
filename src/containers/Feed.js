@@ -1,5 +1,6 @@
 import React from 'react'
 import { BrowserRouter as Router, Route, Redirect, Link } from 'react-router-dom'
+import { PropTypes } from 'prop-types';
 import ProjectCard from "../components/ProjectCard"
 import ProjectSpecs from "../components/ProjectSpecs"
 import Spinner from './Spinner';
@@ -20,6 +21,12 @@ class Feed extends React.Component {
       return Promise.all([res1.json()]) 
     })
     .then(([res1]) => this.setState({projects: res1}))
+  }
+
+  static propTypes = {
+    redirect: PropTypes.string.isRequired,
+    showProject: PropTypes.func.isRequired,
+    user: PropTypes.object.isRequired
   }
 
 //   deleteProject = (e, project) => {

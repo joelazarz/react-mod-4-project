@@ -13,7 +13,6 @@ export class TaskCard extends Component {
         this.setState({ clicked: !this.state.clicked })
     }
 
-
     render() {
 
         const { name, description, users, category } = this.props.task;
