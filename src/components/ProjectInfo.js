@@ -22,7 +22,7 @@ export class ProjectInfo extends Component {
                 <br/>
                 <h5>Langauges: {languages}</h5>
                 <div>Collaborators: <ul>
-                    {users.map(user => <li>{user.name}</li>)}
+                    {users.map(user => <li key={user.id}>{user.name}</li>)}
                     </ul></div>
                 </div>
             </div>

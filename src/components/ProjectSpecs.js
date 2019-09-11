@@ -26,7 +26,8 @@ class ProjectSpecs extends Component {
 
     static propTypes = {
         project: PropTypes.object.isRequired,
-        projectId: PropTypes.number.isRequired
+        projectId: PropTypes.number.isRequired,
+        user: PropTypes.object.isRequired
     }
 
     onDragStart = (e, id) => {
@@ -136,7 +137,7 @@ class ProjectSpecs extends Component {
         const { name } = this.props.project;
         
         return (
-         
+
             <Fragment>
             {this.state.redirect}
             <div className="container-drag">
@@ -147,7 +148,7 @@ class ProjectSpecs extends Component {
 
 
             {this.props.project.user.id === this.props.user.id ? (<button className="btn btn-danger" onClick={this.deleteProject}>Delete Project</button>)
-            : this.state.collaborator ? (<div className="collab-badge"><h6>You are collaborating on this project!</h6></div>) : (<button class="btn btn-light btn-sm" onClick={this.collaborate}>Collaborate on this Project</button>)}    
+            : this.state.collaborator ? (<div className="collab-badge"><h6>You are collaborating on this project!</h6></div>) : (<button className="btn btn-light btn-sm" onClick={this.collaborate}>Collaborate on this Project</button>)}    
                 </div>
                 <div className="project-display">
 

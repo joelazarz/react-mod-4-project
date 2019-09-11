@@ -13,13 +13,6 @@ export class TaskCard extends Component {
         this.setState({ clicked: !this.state.clicked })
     }
 
-    // deleteTask = () => {
-    //     fetch(`http://localhost:3000/tasks/${this.props.task.id}`, {
-    //         method: "DELETE"
-    //     } )
-    // }
-
-
     render() {
 
         const { name, description, users, category } = this.props.task;
