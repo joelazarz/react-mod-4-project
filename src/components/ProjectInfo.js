@@ -17,10 +17,10 @@ export class ProjectInfo extends Component {
                 <div style={{marginLeft: .5 + "em"}}>
                 <h4 style={{textAlign: "center"}}>{name}</h4>
                 
-                <p>{repo_link}</p>
-                <div>{description}</div>
+                <h6><a href={repo_link}>{repo_link}</a></h6>
+                <p>{description}</p>
                 <br/>
-                <div>Langauges: {languages}</div>
+                <h5>Langauges: {languages}</h5>
                 <div>Collaborators: <ul>
                     {users.map(user => <li>{user.name}</li>)}
                     </ul></div>

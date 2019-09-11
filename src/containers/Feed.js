@@ -2,6 +2,7 @@ import React from 'react'
 import { BrowserRouter as Router, Route, Redirect, Link } from 'react-router-dom'
 import ProjectCard from "../components/ProjectCard"
 import ProjectSpecs from "../components/ProjectSpecs"
+import Spinner from './Spinner';
 
 
 class Feed extends React.Component {
@@ -30,7 +31,7 @@ class Feed extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="feed-container">
       {this.state.projects.length > 0 ? ( <div>
         {this.props.redirect}
         <Route path="/projects/:id" render={(routerProps) =>{
@@ -46,7 +47,7 @@ class Feed extends React.Component {
           {this.state.projects.map(project => <ProjectCard key={"project" + project.id} project={project} user={project.user} showProject={this.props.showProject}/>)}
           </div>
         )} /> </div>)
-        : (<h1>Loading</h1>)
+        : (<Spinner />)
       }
       </div>
     )

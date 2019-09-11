@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import Spinner from '../containers/Spinner'
 
 class UserProfile extends Component {
 
@@ -31,7 +32,7 @@ class UserProfile extends Component {
       <ul>
       {this.state.userObj.projects.map(project => <li>{this.props.drawProjectCard(project)}</li>)}
       </ul>
-    </div>) : null}
+    </div>) : (<Spinner />)}
     </div>  
   )
   }
