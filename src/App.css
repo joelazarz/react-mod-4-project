@@ -28,12 +28,16 @@
 }
 
 .login-status {
+  display: flex;
+  flex-direction: row-reverse;
   width: 70vw;
   text-align: end;
 }
 
 .login-badge {
   margin-top: 0.5em;
+  margin-left: 0.5em;
+  margin-right: 0.5em;
 }
 
 .nav-contents .btn {
