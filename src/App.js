@@ -11,7 +11,8 @@ class App extends Component {
 
   state= {
     user: {},
-    redirect: ""
+    redirect: "",
+    login: false
   }
 
   componentDidMount() {
@@ -43,8 +44,14 @@ class App extends Component {
   
   
   setUser = user => {
-    this.setState({ user: user })
+    this.setState({ user: user, login: true })
   }
+
+  logOut = () => {
+    window.localStorage.removeItem('token')
+    this.setState({ login : false })
+}
+
 
   render() {
     console.log('APP STATE', this.state.user)
@@ -52,7 +59,7 @@ class App extends Component {
     return (
       <Fragment>
         <Router>
-        <NavBar user={this.state.user}/>
+        <NavBar user={this.state.user} login={this.state.login} logOut={this.logOut} />
           {this.state.redirect}
 
           <Route exact path="/" render={() => <Home user={this.state.user} setUser={this.setUser} />} />
