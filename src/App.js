@@ -27,7 +27,7 @@ class App extends Component {
         .then(data => {
           console.log('COMPDIDMOUNT DATA:', data)
           this.setState({user: data})
-          // this.props.history.push('/projects')
+          this.props.history.push('/projects')
         })        
     }
   }
