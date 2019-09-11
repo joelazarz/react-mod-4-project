@@ -11,6 +11,7 @@ class ProjectSpecs extends Component {
 
     state = { tasks: [],
         collaborator: false,
+        redirect: ""
     }
 
     componentDidMount(){
@@ -102,10 +103,11 @@ class ProjectSpecs extends Component {
         fetch(`http://localhost:3000/projects/${this.props.project.id}`,{
             method: "DELETE"
         })
-        .then(resp => {if (resp) { return (<Redirect to={`/users/${this.props.user.id}`}/>)}})
+    .then(resp => this.setState({redirect: <Redirect to={`/users/${this.props.user.id}`}/>}))
     }
 
     render() {
+        
 
         let tasks = { todo: [], wip: [], complete: [] }
         
@@ -127,7 +129,9 @@ class ProjectSpecs extends Component {
         const { name } = this.props.project;
         
         return (
+         
             <Fragment>
+            {this.state.redirect}
             <div className="container-drag">
                 <div className="project-header">
                 <h2>{name}</h2>
