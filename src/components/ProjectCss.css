@@ -37,8 +37,8 @@
 .wip {
     width: 22vw;
     height: 80vh;
-    border: 0.5px solid rgb(112, 112, 112);
-    border-radius: 0.5em;
+    border: 1px solid rgb(112, 112, 112);
+    border-radius: 0.2em;
     margin: 1em;
     display: flex;
     flex-direction: column;
@@ -48,8 +48,8 @@
 .todo {
     width: 22vw;
     height: 80vh;
-    border: 0.5px solid rgb(112, 112, 112);
-    border-radius: 0.5em;
+    border: 1px solid rgb(112, 112, 112);
+    border-radius: 0.2em;
     margin: 1em;
     display: flex;
     flex-direction: column;
@@ -59,8 +59,8 @@
 .complete {
     width: 22vw;
     height: 80vh;
-    border: 0.5px solid  rgb(112, 112, 112);
-    border-radius: 0.5em;
+    border: 1px solid rgb(112, 112, 112);
+    border-radius: 0.2em;
     margin: 1em;
     display: flex;
     flex-direction: column;
@@ -113,7 +113,7 @@
     width: 22vw;
     height: 37.5vh;
     border: 1px solid  rgb(112, 112, 112);
-    border-radius: 0.5em;
+    border-radius: 0.2em;
     margin: 1em;
 }
 
@@ -130,7 +130,7 @@
 
 .new-task-header {
     font-size: 2em;
-    width: 222vw;
+    width: 18vw;
     margin-bottom: 0.3em;
 }
 
@@ -143,6 +143,6 @@
     width: 22vw;
     height: 37.5vh;
     border: 1px solid rgb(112, 112, 112);
-    border-radius: 0.5em;
+    border-radius: 0.2em;
     margin: 1em;
 }

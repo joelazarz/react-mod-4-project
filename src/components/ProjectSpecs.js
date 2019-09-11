@@ -136,28 +136,28 @@ class ProjectSpecs extends Component {
 
 
             {this.props.project.user.id === this.props.user.id ? (<button className="btn btn-danger" onClick={this.deleteProject}>Delete Project</button>)
-            : this.state.collaborator ? (<div className="collab-badge"><h2>You are collaborating on this project!</h2></div>) : (<button class="btn btn-light btn-sm" onClick={this.collaborate}>Collaborate on this Project</button>)}    
+            : this.state.collaborator ? (<div className="collab-badge"><h6>You are collaborating on this project!</h6></div>) : (<button class="btn btn-light btn-sm" onClick={this.collaborate}>Collaborate on this Project</button>)}    
                 </div>
                 <div className="project-display">
 
                 <div className="todo"
                     onDragOver={dragOverAction}
                     onDrop={(e)=>{this.onDrop(e, "todo")}}>
-                    <span className="task-header">To Do</span>
+                    <span className="card-header bg-light">To Do</span>
                     {tasks.todo}
                 </div>
 
                 <div className="wip"
                     onDragOver={dragOverAction}
                     onDrop={(e)=>{this.onDrop(e, "wip")}}>
-                    <span className="task-header">IN PROGRESS</span>
+                    <span className="card-header bg-light">IN PROGRESS</span>
                     {tasks.wip}
                 </div>
 
                 <div className="complete" 
                     onDragOver={dragOverAction}
                     onDrop={(e)=>this.onDrop(e, "complete")}>
-                    <span className="task-header">COMPLETED</span>
+                    <span className="card-header bg-light">COMPLETED</span>
                     {tasks.complete}
                 </div>
 
