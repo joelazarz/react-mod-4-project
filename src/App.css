@@ -24,6 +24,16 @@
 
 .nav-contents{
   margin-left: 2em;
+  display: inline-flex;
+}
+
+.login-status {
+  width: 70vw;
+  text-align: end;
+}
+
+.login-badge {
+  margin-top: 0.5em;
 }
 
 .nav-contents .btn {
