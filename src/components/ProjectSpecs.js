@@ -106,6 +106,13 @@ class ProjectSpecs extends Component {
     .then(resp => this.setState({redirect: <Redirect to={`/users/${this.props.user.id}`}/>}))
     }
 
+    deleteTask = (e,task) => {
+        fetch(`http://localhost:3000/tasks/${task.id}`, {
+            method: "DELETE"
+        } )
+        .then(resp => this.setState({tasks: this.state.tasks.filter(taskObj => taskObj.id !== task.id)}))
+    }
+
     render() {
         
 
@@ -119,7 +126,7 @@ class ProjectSpecs extends Component {
                 className="draggable"
                 id={task.category}
                 >
-            <TaskCard key={"task"+task.id} task={task} />
+            <TaskCard key={"task"+task.id} task={task} deleteTask={this.deleteTask} />
             </div>
             );
         });

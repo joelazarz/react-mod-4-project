@@ -96,3 +96,8 @@ a {
   color: black;
   text-decoration: none;
 }
+
+.delete-task {
+  float: right;
+  margin: .5em;
+}

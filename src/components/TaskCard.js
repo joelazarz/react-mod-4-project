@@ -13,6 +13,12 @@ export class TaskCard extends Component {
         this.setState({ clicked: !this.state.clicked })
     }
 
+    // deleteTask = () => {
+    //     fetch(`http://localhost:3000/tasks/${this.props.task.id}`, {
+    //         method: "DELETE"
+    //     } )
+    // }
+
 
     render() {
 
@@ -27,7 +33,10 @@ export class TaskCard extends Component {
                 <h6 className="text-center">{name}</h6></div>
                 {isClicked ? (
                 <div className="task-card-description">
-                {description}<hr/>  {category !=="todo" ? (<div> Assigned to Task: {users[0].name}</div> ): null}</div>) : (<div></div>)}
+                {description}<hr/>  {category !=="todo" ? (
+                    <div> Assigned to Task: {users[0].name} 
+                        <button className="btn btn-sm btn-danger delete-task" onClick={(e) => this.props.deleteTask(e,this.props.task)}>Delete</button>
+                    </div> ): <button className="btn btn-sm btn-danger delete-task" onClick={(e) => this.props.deleteTask(e,this.props.task)}>Delete</button>}</div>) : (<div></div>)}
             </Fragment>
         )
     }
