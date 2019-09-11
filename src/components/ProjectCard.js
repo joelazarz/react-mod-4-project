@@ -1,5 +1,6 @@
 import React from 'react'
 import { Redirect, Link } from 'react-router-dom'
+import { PropTypes } from 'prop-types';
 
 const ProjectCard = props => {
   
@@ -20,8 +21,13 @@ const ProjectCard = props => {
     </div>
     </div>
     </div>
-   
   )
+}
+
+ProjectCard.propTypes = {
+  project: PropTypes.object.isRequired,
+  showProject: PropTypes.func.isRequired,
+  user: PropTypes.object.isRequired
 }
 
 export default ProjectCard

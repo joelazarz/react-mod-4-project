@@ -26,12 +26,12 @@ export class NavBar extends Component {
                 <Link to='/new-project' className="btn btn-primary"> New Project</Link>
                 {!!!name ?
                 <div className='login-status'>
-                    <Link to='/'><h5 className='login-badge'><span class="badge badge-light">Please Login or Sign Up</span></h5></Link>
+                    <Link to='/'><h5 className='login-badge'><span className="badge badge-light">Please Login or Sign Up</span></h5></Link>
                 </div>
                 :
                 (<div className='login-status'>
                     <h5 className='login-badge'><span class="badge badge-success"> Welcome {name}</span></h5>
-                    <Link to='/'><h5 onClick={this.logOut} className='login-badge'><span class="badge badge-dark">Logout</span></h5></Link>
+                    <Link to='/'><h5 onClick={this.logOut} className='login-badge'><span className="badge badge-dark">Logout</span></h5></Link>
                 </div>)
                 }
                 </div>
