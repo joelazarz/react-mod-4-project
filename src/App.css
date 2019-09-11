@@ -2,14 +2,15 @@
   display: flex;
   width: 100vw;
   text-align: center;
+  flex-direction: column;
 }
 
 .toggle-button {
-  margin-top: 4em;
-  margin-left: 2em;
+  margin-top: 2em;
   height: 2em;
-  width: 20vw;
+  width: 25vw;
   text-align: center;
+  align-self: center;
 }
 
 .nav-bar {
@@ -52,7 +53,6 @@ i.fas{
   border-radius: 0.5em;
   width: 40vw;
   margin-top: 4em;
-  margin-left: 3em;
   background: lightgrey;
   align-self: center;
 }
@@ -68,5 +68,9 @@ label {
 
 .btn .btn-secondary{
   margin-left: 3em;
+}
+
+.h2, h2 {
+  margin-left: 1em;
 }
 

@@ -145,4 +145,6 @@
     border: 1px solid rgb(112, 112, 112);
     border-radius: 0.2em;
     margin: 1em;
+    overflow: auto;
+    word-wrap: break-word;
 }
