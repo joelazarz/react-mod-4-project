@@ -11,6 +11,7 @@ export class NavBar extends Component {
     }
 
     componentDidMount(){
+        this.setState({login: this.props.login})
         if (this.props.user)
         {this.setState({ login: true })}
     }
@@ -18,11 +19,6 @@ export class NavBar extends Component {
 
     static propTypes = {
         user: PropTypes.object.isRequired
-    }
-
-    logOut = () => {
-        window.localStorage.removeItem('token')
-        this.setState({ login : false })
     }
 
     render() {
@@ -35,10 +31,10 @@ export class NavBar extends Component {
                 <Link to='/projects' className="btn btn-primary"> Project Feed</Link>
                 <Link to={`/users/${id}`} className="btn btn-primary"> Profile </Link>
                 <Link to='/new-project' className="btn btn-primary"> New Project</Link>
-                {this.state.login ?
+                {this.props.login ?
                 <div className='login-status'>
                     <h5 className='login-badge'><span class="badge badge-success"> Welcome {name}</span></h5>
-                    <Link to='/'><h5 onClick={this.logOut} className='login-badge'><span class="badge badge-dark"> Logout</span></h5></Link>
+                    <Link to='/'><h5 onClick={this.props.logOut} className='login-badge'><span class="badge badge-dark"> Logout</span></h5></Link>
                 </div>
                     : (<div className='login-status'>
                     <Link to='/'><h5 className='login-badge'><span class="badge badge-light"> Please Login or Sign Up</span></h5></Link>
