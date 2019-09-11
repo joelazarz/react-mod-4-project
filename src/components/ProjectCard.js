@@ -14,7 +14,7 @@ const ProjectCard = props => {
       <h4><div className="card-title">{project.name}</div></h4>
       <p>Languages: {project.languages} 
       </p>
-      <h6> Project Owner: {props.user.name}</h6>
+      <h6> Project Owner: {project.user.name}</h6>
       </div>
       </Link>
     </div>
