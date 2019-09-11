@@ -7,7 +7,12 @@ import "../App.css";
 export class NavBar extends Component {
 
     state = {
-        login: false
+        login: true
+    }
+
+    componentDidMount(){
+        if (this.props.user)
+        {this.setState({ login: true })}
     }
 
 
@@ -15,9 +20,13 @@ export class NavBar extends Component {
         user: PropTypes.object.isRequired
     }
 
-    clickHandler = () => {
+    logOut = () => {
         window.localStorage.removeItem('token')
-        this.setState({ login : !this.state.login })
+        this.setState({ login : false })
+    }
+
+    logIn = () => {
+        window.localStorage.removeItem('token')
     }
 
     render() {
@@ -33,10 +42,10 @@ export class NavBar extends Component {
                 {name && this.state.login ?
                 <div className='login-status'>
                     <h5 className='login-badge'><span class="badge badge-success"> Welcome {name}</span></h5>
-                    <Link to='/'><h5 onClick={this.clickHandler} className='login-badge'><span class="badge badge-dark"> Logout</span></h5></Link>
+                    <Link to='/'><h5 onClick={this.logOut} className='login-badge'><span class="badge badge-dark"> Logout</span></h5></Link>
                 </div>
                     : (<div className='login-status'>
-                    <Link to='/'><h5 onClick={this.clickHandler} className='login-badge'><span class="badge badge-light"> Please Login or Sign Up</span></h5></Link>
+                    <Link to='/'><h5 onClick={this.logIn} className='login-badge'><span class="badge badge-light"> Please Login or Sign Up</span></h5></Link>
                 </div>)
                 }
                 </div>
